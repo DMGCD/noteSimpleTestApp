@@ -119,11 +119,64 @@ header .search input{
     background-color: #0984e3;
     border-collapse: collapse;
 }
-.container .table table, 
+.container .table table,
 .container .table table td{
     border: 2px black solid;
     padding: 5px;
 }
 .container .table table th{
     padding: 5px;
+    background-color: #636e16;
+    text-align: left;
+}
+.container .table table th:last-child,
+.container .table table th:nth-last-child(2){
+    text-align: center;
+    color: wheat;
+}
+.container .table table .btncell-view,
+.container .table table .btncell-delete{
+    text-align: center;
+}
+.container .table table td{
+   max-width: 100px;
+   overflow: hidden;
+    text-overflow: ellipsis;
+
+} 
+.container .table table .btncell-view button{
+    padding: 5px;
+    background-color: #636e16;
+}
+.container .table table .btncell-delete button{
+    background-color: #810410;
+    color: white;
+}
+
+/* responsive */
+@media(max-width:600px){
+    header{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    header .logo{
+        margin-bottom: 10px;
+    }
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container .table,
+    .container .inp-frm{
+        flex-direction: column;
+        margin-bottom: 20px;
+        min-width: 250px;
+        margin-left: 0;
+        margin-right: 0;
+        
+    }
+    
+
+
 }
