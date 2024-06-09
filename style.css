@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+   }
+   body{
+    background-image: url(https://img.freepik.com/free-photo/abstract-digital-grid-black-background_53876-97647.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1717718400&semt=ais_user);
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+}
+button{
+    padding: 5px 8px;
+    border: none;
+    transition: all 0.3s ease-in;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+button:hover{
+    background-color: white !important;
+    color: black !important;
+    
+}
+input, textarea, table{
+    font-size:1rem;
+
+}
+::placeholder{
+    font-size: 0.9rem;
+}
+/* header Section */
+header{
+    max-width: 650px;
+    background-color: aqua;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content:space-between;
+}
+header .logo{
+background-color: #fff;
+color: #0984e3;
+padding: 5px;
+
+}
+header .search input{
+    width: 250px;
+    height: 30px;
+    padding: 20px 30px;
+    border-radius: 20px;
+}
+
+.container{
+    background-color: transparent;
+    display: flex;
+    max-width: 650px;
+   margin: 2px auto;
+    justify-content: center;
+    align-items:flex-start;
+    padding: 10px ;
+    border: 5px blue solid;
+}
+.container .inp-frm{
+
+    background-color: #0984e3;
+    width: 40%;
+    padding: 20px;
+    }
+.container .inp-frm form{
+        margin: auto;
+        margin: 5px;
+        background-color: #0984e3;
+        padding: 15px;
+ }
+ .container .inp-frm form h3{
+    margin-bottom: 5px;
+
+ }
+ .container .inp-frm form input{
+    width: 100%;
+    padding: 15px 10px;
+    height: 20px;
+    margin: 10px;
+ }
+.container .inp-frm form textarea{
+    resize: none;
+    width: 100%;
+    padding: 7px 10px;
+    margin: 10px;
+}
+
+.container .inp-frm form button{
+    width: 100%;
+    margin: 5px 10px;
+}
+.container .inp-frm form #save{
+    background-color: #06612f;
+    color: white;
+}
+.container .inp-frm form #reset{
+    background-color: #810410;
+    color: white;
+}
+.container .table {
+    background-color: white;
+    color: black;
+    width:50%; 
+    max-height: 260px;
+    overflow: auto;
+    padding: 20px;
+    margin-left: 10px; 
+}
+.container .table table{
+    width: 100%;
+    background-color: #0984e3;
+    border-collapse: collapse;
+}
+.container .table table, 
+.container .table table td{
+    border: 2px black solid;
+    padding: 5px;
+}
+.container .table table th{
+    padding: 5px;
+}
