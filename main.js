@@ -4,8 +4,15 @@ document.addEventListener('DOMContentLoaded',function(){
 // variables
 var noteCount =0;
 var noteBody ='';
+var isUpdate=false;
+var recode='';
+var note='';
+var body='';
+
     // selecte the table
 var items =document.getElementById('item');
+var search =document.getElementById('srch');
+var reset =document.getElementById('reset');
 
 var nTitle =document.getElementById('n-title');
 var nBody =document.getElementById('n-body');
@@ -13,7 +20,11 @@ var form =document.getElementById('add-frm');
     // select Table For display
     var tableDis =document.getElementById('table-div')
 // Events
+items.addEventListener('click',removeNote);
+reset.addEventListener('click',resetAll);
 form.addEventListener('submit',addNote);
+items.addEventListener('click',viewNUpdateNote);
+search.addEventListener('keyup',searchNote);
     // page on load
 window.onload=updateTable();
 
@@ -22,14 +33,79 @@ window.onload=updateTable();
 
 
 // Functions
+// reset Function 
+function resetAll(){
+    nTitle.value='';
+    nBody.value='';
+    isUpdate=false;
+    noteBody ='';
+}
+//view and Update Note
+
+function viewNUpdateNote(e){
+    if(e.target.id=='btnV'){
+        // get the element value $ and update input field
+        recode =e.target.parentElement.parentElement;
+        note =recode.firstChild;
+        nTitle.value =note.firstChild.textContent;
+        nBody.value =note.lastChild.textContent;
+        isUpdate=true;
 
 
+    }
+}
+// remove note function 
+ function removeNote(e){
+    var btndelete =e.target.id
+    if(btndelete=='btnD'){
+        if(confirm("Are you Sure !")){
+            var tr =e.target.parentElement.parentElement;
+            items.removeChild(tr);
+            noteCount--;
+            if(noteCount==0){
+                updateTable();
+            }
+        }
+       
+    }
+
+ }
+// Search Func/
+
+    function searchNote(e){
+        var searchText=e.target.value.toLowerCase();
+        var list = document.getElementsByClassName('item');
+       var listA = Array.from(list);
+
+       listA.forEach(function(item){
+        var searchTitle  = item.firstChild.textContent;
+        if(searchTitle.toLowerCase().indexOf(searchText)!=-1){
+            item.style.display ='';
+        }
+        else{
+            item.style.display='none';
+
+        }
+
+       });
+       
+    }
 // Update 
 function updateTable(){
     //Displaye when note are added 
     if(noteCount>0){
         tableDis.style.display ='';
-        items.appendChild(noteBody);
+        if(isUpdate){
+            note.firstChild.textContent =nTitle.value;
+            note.lastChild.textContent =nBody.value;
+
+            //reset update and ncounting 
+            isUpdate=false;
+            noteCount--;
+        }
+        else{
+            items.appendChild(noteBody);
+        }
     }
     else{
         tableDis.style.display='none';
@@ -90,8 +166,9 @@ function addNote(e){
 
         // add or update 
         updateTable();  
-        console.log(td3);
+        
      }
+     resetAll();
 }
 
 
