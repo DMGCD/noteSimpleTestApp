@@ -134,6 +134,10 @@ header .search input{
     text-align: center;
     color: wheat;
 }
+.container .table .note-body{
+    display: none;
+
+}
 .container .table table .btncell-view,
 .container .table table .btncell-delete{
     text-align: center;
